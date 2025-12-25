@@ -1,15 +1,15 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import '../styles/global.css';
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
 
 interface Props {
 	title: string;
 	description?: string;
 }
 
-const { 
+const {
 	title = "BTM Capacitaciones | RCP y Primeros Auxilios",
-	description = "Aprende a salvar vidas con BTM. Formación certificada internacionalmente en RCP y Primeros Auxilios para personas y empresas. ¡Conviértete en el milagro hoy!"
+	description = "Aprende a salvar vidas con BTM. Formación certificada internacionalmente en RCP y Primeros Auxilios para personas y empresas. ¡Conviértete en el milagro hoy!",
 } = Astro.props;
 ---
 
@@ -22,16 +22,66 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="RCP capacitaciones, cursos DEA, primeros auxilios, seguridad industrial, ACES AIDER, brigadistas empresas" />
-		
+		<meta
+			name="keywords"
+			content="RCP capacitaciones, cursos DEA, primeros auxilios, seguridad industrial, ACES AIDER, brigadistas empresas"
+		/>
+
+		<!-- Open Graph -->
+		<meta property="og:site_name" content="BTM Capacitaciones" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta
+			property="og:url"
+			content="https://btmcapacitaciones.vercel.app/"
+		/>
+		<meta
+			property="og:image"
+			content="https://btmcapacitaciones.vercel.app/cover.png"
+		/>
+		<meta
+			property="og:image:url"
+			content="https://btmcapacitaciones.vercel.app/cover.png"
+		/>
+		<meta
+			property="og:image:secure_url"
+			content="https://btmcapacitaciones.vercel.app/cover.png"
+		/>
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="600" />
+		<meta
+			property="og:image:alt"
+			content="BTM Capacitaciones - RCP y Primeros Auxilios"
+		/>
+
+		<!-- Twitter -->
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:image"
+			content="https://btmcapacitaciones.vercel.app/cover.png"
+		/>
+		<meta
+			name="twitter:image:alt"
+			content="BTM Capacitaciones - RCP y Primeros Auxilios"
+		/>
+		<meta name="twitter:domain" content="https://btmcapacitaciones.com" />
+
 		<!-- Google Fonts: Inter -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-		
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+
 		<ClientRouter />
 	</head>
-	<body class="bg-btm-bg text-gray-900 font-sans antialiased selection:bg-btm-blue selection:text-white">
+	<body
+		class="bg-btm-bg text-gray-900 font-sans antialiased selection:bg-btm-blue selection:text-white"
+	>
 		<slot />
 	</body>
 </html>
