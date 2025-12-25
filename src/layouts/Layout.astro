@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -83,5 +84,6 @@ const {
 		class="bg-btm-bg text-gray-900 font-sans antialiased selection:bg-btm-blue selection:text-white overflow-x-hidden"
 	>
 		<slot />
+		<CookieConsent />
 	</body>
 </html>

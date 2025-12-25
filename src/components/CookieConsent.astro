@@ -1,0 +1,70 @@
+---
+
+---
+
+<div
+    id="cookie-consent"
+    class="fixed bottom-0 inset-x-0 z-50 p-4 transform translate-y-full transition-transform duration-500 ease-in-out pointer-events-none"
+>
+    <div class="container mx-auto max-w-4xl pointer-events-auto">
+        <div
+            class="bg-gray-900/95 backdrop-blur-md text-white p-6 rounded-2xl shadow-2xl border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6"
+        >
+            <div class="flex-1">
+                <p class="text-sm md:text-base leading-relaxed text-gray-200">
+                    Este sitio utiliza únicamente cookies técnicas necesarias
+                    para su funcionamiento. No empleamos cookies de análisis. Si
+                    empleamos cookies de publicidad y seguimiento. Al continuar
+                    navegando aceptas estas cookies esenciales. Más información
+                    en nuestra
+                    <a
+                        href="/politica-de-privacidad"
+                        class="text-gray-100 hover:text-btm-red font-bold transition-colors"
+                        >Política de Privacidad</a
+                    >
+                    y
+                    <a
+                        href="/terminos-y-condiciones"
+                        class="text-gray-100 hover:text-btm-red font-bold transition-colors"
+                        >Términos y Condiciones</a
+                    >.
+                </p>
+            </div>
+            <div class="flex shrink-0">
+                <button
+                    id="accept-cookies"
+                    class="bg-btm-red hover:bg-btm-red-hover text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg transform hover:-translate-y-1 active:scale-95 whitespace-nowrap cursor-pointer"
+                >
+                    ACEPTAR TODO
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const STORAGE_KEY = "btm-cookies-accepted";
+    const consentElement = document.getElementById("cookie-consent");
+    const acceptBtn = document.getElementById("accept-cookies");
+
+    const showConsent = () => {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+            setTimeout(() => {
+                consentElement?.classList.remove("translate-y-full");
+            }, 1000);
+        }
+    };
+
+    const acceptCookies = () => {
+        localStorage.setItem(STORAGE_KEY, "true");
+        consentElement?.classList.add("translate-y-full");
+    };
+
+    acceptBtn?.addEventListener("click", acceptCookies);
+
+    // Initial check
+    showConsent();
+
+    // Re-check on view transitions
+    document.addEventListener("astro:after-swap", showConsent);
+</script>
