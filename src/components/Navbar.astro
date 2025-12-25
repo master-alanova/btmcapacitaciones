@@ -119,10 +119,12 @@
         <!-- Mobile Menu Button -->
         <button
             id="mobile-menu-btn"
-            class="md:hidden text-gray-700 hover:text-btm-blue focus:outline-none p-2"
+            class="md:hidden text-gray-700 hover:text-btm-blue focus:outline-none p-2 relative w-10 h-10 flex items-center justify-center"
             aria-label="Menu"
         >
+            <!-- Hamburger Icon -->
             <svg
+                id="hamburger-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
                 height="28"
@@ -132,10 +134,28 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
+                class="absolute transition-all duration-300 opacity-100 scale-100"
             >
                 <line x1="4" x2="20" y1="12" y2="12"></line>
                 <line x1="4" x2="20" y1="6" y2="6"></line>
                 <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+            <!-- Close Icon (X) -->
+            <svg
+                id="close-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="absolute transition-all duration-300 opacity-0 scale-0 rotate-90"
+            >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
     </div>
@@ -178,12 +198,39 @@
 
         function toggleMenu() {
             isOpen = !isOpen;
+            const hamburger = document.getElementById("hamburger-icon");
+            const close = document.getElementById("close-icon");
+
             if (isOpen) {
                 menu?.classList.remove("translate-x-full");
                 document.body.style.overflow = "hidden";
+
+                // Toggle icons
+                hamburger?.classList.add("opacity-0", "scale-0", "rotate-90");
+                hamburger?.classList.remove(
+                    "opacity-100",
+                    "scale-100",
+                    "rotate-0",
+                );
+                close?.classList.add("opacity-100", "scale-100", "rotate-0");
+                close?.classList.remove("opacity-0", "scale-0", "rotate-90");
             } else {
                 menu?.classList.add("translate-x-full");
                 document.body.style.overflow = "";
+
+                // Toggle icons
+                hamburger?.classList.remove(
+                    "opacity-0",
+                    "scale-0",
+                    "rotate-90",
+                );
+                hamburger?.classList.add(
+                    "opacity-100",
+                    "scale-100",
+                    "rotate-0",
+                );
+                close?.classList.remove("opacity-100", "scale-100", "rotate-0");
+                close?.classList.add("opacity-0", "scale-0", "rotate-90");
             }
         }
 
