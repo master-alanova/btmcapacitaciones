@@ -56,11 +56,28 @@ const getIcon = (type: string) => {
             Incluye Certificado
         </div>
 
-        <a
-            href="#contacto"
-            class="block w-full text-center py-2.5 rounded-lg border-2 border-btm-red text-btm-red font-bold hover:bg-btm-red hover:text-white transition-colors duration-300"
+        <button
+            class="enroll-btn block w-full text-center py-2.5 rounded-lg border-2 border-btm-red text-btm-red font-bold hover:bg-btm-red hover:text-white transition-colors duration-300 cursor-pointer"
+            data-course={title}
         >
             INSCRIBIRME
-        </a>
+        </button>
     </div>
 </div>
+
+<script>
+    const enrollButtons = document.querySelectorAll(".enroll-btn");
+
+    enrollButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const courseTitle = button.getAttribute("data-course");
+            const phoneNumber = "5491131252946";
+
+            const message = `Hola BTM Capacitaciones! Me interesa inscribirme en el curso de *${courseTitle}*. ¿Me podrían dar más información?`;
+            const encodedMessage = encodeURIComponent(message);
+
+            const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(waUrl, "_blank");
+        });
+    });
+</script>
