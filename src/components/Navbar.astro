@@ -163,7 +163,7 @@
     <!-- Mobile Menu Overlay -->
     <div
         id="mobile-menu"
-        class="fixed inset-0 top-20 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-8 gap-6 border-t border-gray-100 h-[calc(100vh-80px)]"
+        class="fixed inset-0 top-20 bg-white z-40 transform translate-x-full invisible transition-all duration-300 md:hidden flex flex-col p-8 gap-6 border-t border-gray-100 h-[calc(100vh-80px)]"
     >
         <a
             href="#cursos-personales"
@@ -202,7 +202,7 @@
             const close = document.getElementById("close-icon");
 
             if (isOpen) {
-                menu?.classList.remove("translate-x-full");
+                menu?.classList.remove("translate-x-full", "invisible");
                 document.body.style.overflow = "hidden";
 
                 // Toggle icons
@@ -215,7 +215,7 @@
                 close?.classList.add("opacity-100", "scale-100", "rotate-0");
                 close?.classList.remove("opacity-0", "scale-0", "rotate-90");
             } else {
-                menu?.classList.add("translate-x-full");
+                menu?.classList.add("translate-x-full", "invisible");
                 document.body.style.overflow = "";
 
                 // Toggle icons

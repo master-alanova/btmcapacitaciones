@@ -3,13 +3,19 @@
 @theme {
   --color-btm-blue: #000AE8;
   --color-btm-red: #ED342F;
-  --color-btm-red-hover: #b91c1c; /* Approximate red-700 */
+  --color-btm-red-hover: #b91c1c;
+  /* Approximate red-700 */
   --color-btm-bg: #FEFEFE;
-  
+
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
+html,
 body {
   background-color: var(--color-btm-bg);
   font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
