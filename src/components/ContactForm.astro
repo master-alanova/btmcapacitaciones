@@ -190,7 +190,7 @@
 
             <!-- Form Side -->
             <div class="md:w-7/12 p-10">
-                <form class="space-y-6">
+                <form id="contact-form" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label
@@ -268,13 +268,13 @@
                             name="interest"
                             class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-btm-blue focus:ring-2 focus:ring-btm-blue/20 outline-none transition-all bg-white"
                         >
-                            <option value="particular"
+                            <option value="Particular"
                                 >Cursos para mi (Particular)</option
                             >
-                            <option value="empresa"
+                            <option value="Empresa"
                                 >Capacitación In-Company (Empresa)</option
                             >
-                            <option value="otros"
+                            <option value="Otros"
                                 >Otros / Consulta General</option
                             >
                         </select>
@@ -306,3 +306,39 @@
         </div>
     </div>
 </section>
+
+<script>
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+
+    form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const name = formData.get("name");
+        const company = formData.get("company");
+        const email = formData.get("email");
+        const phone = formData.get("phone");
+        const interest = formData.get("interest");
+        const message = formData.get("message");
+
+        const phoneNumber = "5491131252946"; // BTM WhatsApp number
+
+        // Build the sales-focused message
+        let whatsappText = `Hola BTM Capacitaciones, mi nombre es *${name}*!%0A%0A`;
+
+        if (company) {
+            whatsappText += `Escribo de parte de la empresa *${company}*.%0A%0A`;
+        }
+
+        whatsappText += `Estoy interesado en: *${interest}*.%0A%0A`;
+        whatsappText += `*Mi mensaje:*%0A${message}%0A%0A`;
+        whatsappText += `*Mis datos de contacto:*%0A`;
+        whatsappText += `📧 Email: ${email}%0A`;
+        whatsappText += `📞 Teléfono: ${phone}`;
+
+        const waUrl = `https://wa.me/${phoneNumber}?text=${whatsappText}`;
+
+        // Open WhatsApp in a new tab
+        window.open(waUrl, "_blank");
+    });
+</script>
