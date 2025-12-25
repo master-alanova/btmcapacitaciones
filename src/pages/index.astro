@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import SegmentSection from "../components/SegmentSection.astro";
+import CatalogSection from "../components/CatalogSection.astro";
+import EnterpriseSection from "../components/EnterpriseSection.astro";
+import AboutSection from "../components/AboutSection.astro";
+import TrustBar from "../components/TrustBar.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+	title="BTM Capacitaciones | RCP, DEA y Primeros Auxilios con Walter Hindle"
+	description="Aprende a salvar vidas con BTM. Formación certificada internacionalmente en RCP y Primeros Auxilios para personas y empresas. ¡Conviértete en el milagro hoy!"
+>
+	<Navbar />
+
+	<main>
+		<Hero />
+		<SegmentSection />
+		<CatalogSection />
+		<EnterpriseSection />
+		<AboutSection />
+		<TrustBar />
+		<ContactForm />
+	</main>
+
+	<Footer />
+</Layout>

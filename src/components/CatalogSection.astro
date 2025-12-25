@@ -1,0 +1,89 @@
+---
+import CourseCard from "./CourseCard.astro";
+---
+
+<section id="cursos-personales" class="py-24 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span
+                class="text-btm-blue font-bold tracking-wider uppercase text-sm"
+                >Cursos Personales</span
+            >
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
+                Tu conocimiento salva vidas
+            </h2>
+            <p class="text-xl text-gray-600">
+                Todos nuestros programas incluyen <strong class="text-btm-blue"
+                    >Certificado de Finalización Garantizado</strong
+                > y aval técnico.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <CourseCard
+                title="RCP"
+                description="Técnicas fundamentales para salvar vidas en paros cardíacos."
+                icontype="heart"
+            />
+
+            <CourseCard
+                title="RCP + DEA"
+                description="Uso del Desfibrilador Externo Automático con maniobras de RCP."
+                icontype="kit"
+            />
+
+            <CourseCard
+                title="Primeros Socorros + RCP + DEA"
+                description="Formación integral para emergencias médicas iniciales."
+                icontype="plus"
+            />
+
+            <CourseCard
+                title="Primeros Socorros Básicos"
+                description="Atención inicial esencial para accidentes domésticos o vía pública."
+                icontype="shield"
+            />
+
+            <CourseCard
+                title="Primeros Socorros Avanzados"
+                description="Entrenamiento profundo para situaciones de alta complejidad."
+                icontype="shield"
+            />
+
+            <!-- Call to action card for "More info" or Custom -->
+            <div
+                class="bg-gray-50 rounded-2xl p-6 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center text-center h-full hover:border-btm-blue transition-colors group"
+            >
+                <div
+                    class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="text-btm-blue"
+                        ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"
+                        ></path></svg
+                    >
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">
+                    ¿Necesitas algo específico?
+                </h3>
+                <p class="text-gray-500 mb-4">
+                    Contáctanos para cursos personalizados.
+                </p>
+                <a
+                    href="#contacto"
+                    class="font-bold text-btm-blue hover:underline"
+                    >Escribir a Walter &rarr;</a
+                >
+            </div>
+        </div>
+    </div>
+</section>

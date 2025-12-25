@@ -1,0 +1,157 @@
+---
+
+---
+
+<section
+    class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-btm-blue text-white py-8"
+>
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <!-- Placeholder image for CPR/Training -->
+        <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
+            alt="Capacitación de RCP BTM"
+            class="w-full h-full object-cover object-center opacity-40 mix-blend-overlay"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-btm-blue via-blue-900/90 to-btm-blue/80 mix-blend-multiply"
+        >
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-btm-blue to-transparent opacity-80"
+        >
+        </div>
+    </div>
+
+    <div
+        class="relative z-10 container mx-auto px-4 md:px-6 text-center max-w-5xl"
+    >
+        <!-- Badge -->
+        <div
+            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-sm font-medium mb-8 animate-fade-in-up"
+        >
+            <span class="w-2 h-2 rounded-full bg-btm-red animate-pulse"></span>
+            Cursos disponibles 2025
+        </div>
+
+        <!-- H1 Fat Headline -->
+        <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-8 animate-fade-in-up delay-100 drop-shadow-lg"
+        >
+            Conviértete en el <br />
+            <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200"
+                >milagro</span
+            > que <br />
+            alguien necesita.
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+            class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed font-light animate-fade-in-up delay-200"
+        >
+            Transforma el miedo en acción con la guía de <strong
+                class="text-white font-semibold">Walter Hindle</strong
+            >. Capacitaciones de RCP y Primeros Auxilios que salvan vidas
+            reales.
+        </p>
+
+        <!-- CTAs -->
+        <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300"
+        >
+            <a
+                href="#cursos-personales"
+                class="min-w-[220px] bg-btm-red text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-btm-red-hover transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
+            >
+                VER CURSOS
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right group-hover:translate-x-1 transition-transform"
+                    ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"
+                    ></path></svg
+                >
+            </a>
+
+            <a
+                href="#soluciones-empresas"
+                class="min-w-[220px] bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-btm-blue transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-building-2"
+                    ><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"
+                    ></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                    ></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"
+                    ></path><path d="M10 6h4"></path><path d="M10 10h4"
+                    ></path><path d="M10 14h4"></path><path d="M10 18h4"
+                    ></path></svg
+                >
+                PARA EMPRESAS
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-70"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-white"
+            ><path d="m7 13 5 5 5-5"></path><path d="m7 6 5 5 5-5"></path></svg
+        >
+    </div>
+</section>
+
+<style>
+    .delay-100 {
+        animation-delay: 100ms;
+    }
+    .delay-200 {
+        animation-delay: 200ms;
+    }
+    .delay-300 {
+        animation-delay: 300ms;
+    }
+
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+        opacity: 0; /* Star hidden */
+    }
+</style>
