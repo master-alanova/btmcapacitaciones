@@ -1,11 +1,12 @@
 ---
 interface Props {
+    slug: string;
     title: string;
     description: string;
     icontype: "heart" | "shield" | "plus" | "kit";
 }
 
-const { title, description, icontype } = Astro.props;
+const { slug, title, description, icontype } = Astro.props;
 
 const getIcon = (type: string) => {
     switch (type) {
@@ -24,7 +25,7 @@ const getIcon = (type: string) => {
 ---
 
 <div
-    class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-btm-blue/30 transition-all duration-300 group flex flex-col h-full"
+    class={`bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-btm-blue/30 transition-all duration-300 group flex flex-col h-full course-card-${slug}`}
 >
     <div
         class="mb-4 text-btm-blue bg-blue-50 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-btm-blue group-hover:text-white transition-all duration-300"
@@ -57,7 +58,7 @@ const getIcon = (type: string) => {
         </div>
 
         <button
-            class="enroll-btn block w-full text-center py-2.5 rounded-lg border-2 border-btm-red text-btm-red font-bold hover:bg-btm-red hover:text-white transition-colors duration-300 cursor-pointer"
+            class={`enroll-btn block w-full text-center py-2.5 rounded-lg border-2 border-btm-red text-btm-red font-bold hover:bg-btm-red hover:text-white transition-colors duration-300 cursor-pointer enroll-btn-${slug}`}
             data-course={title}
         >
             INSCRIBIRME
