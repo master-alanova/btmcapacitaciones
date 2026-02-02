@@ -1,0 +1,210 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    canonicalURL: string;
+    socialImageURL: string;
+}
+
+const { title, description, canonicalURL, socialImageURL } = Astro.props;
+
+// Structured Data (JSON-LD)
+const personSchema = {
+    "@type": "Person",
+    "@id": `${Astro.site}#person`,
+    name: "Walter Hindle",
+    url: Astro.site,
+    image: {
+        "@type": "ImageObject",
+        "@id": `${Astro.site}#personImage`,
+        url: new URL(
+            "/about-walter-alejandro-hindle.webp",
+            Astro.site,
+        ).toString(),
+        caption: "Walter Hindle",
+    },
+    description:
+        "Instructor de RCP, DEA y Primeros Socorros con certificación internacional.",
+};
+
+const organizationSchema = {
+    "@type": "Organization",
+    "@id": `${Astro.site}#organization`,
+    name: "BTM Capacitaciones",
+    url: Astro.site,
+    logo: {
+        "@type": "ImageObject",
+        "@id": `${Astro.site}#logo`,
+        url: new URL("/favicon.svg", Astro.site).toString(),
+        caption: "BTM Capacitaciones Logo",
+    },
+    sameAs: [
+        "https://www.linkedin.com/company/btm-capacitaciones/",
+        "https://www.instagram.com/btmcapacitaciones/",
+    ],
+};
+
+const websiteSchema = {
+    "@type": "WebSite",
+    "@id": `${Astro.site}#website`,
+    url: Astro.site,
+    name: "BTM Capacitaciones",
+    publisher: { "@id": `${Astro.site}#organization` },
+    potentialAction: [
+        {
+            "@type": "SearchAction",
+            target: {
+                "@type": "EntryPoint",
+                urlTemplate: `${Astro.site}?q={search_term_string}`,
+            },
+            "query-input": {
+                "@type": "PropertyValueSpecification",
+                valueRequired: true,
+                valueName: "search_term_string",
+            },
+        },
+    ],
+};
+
+const imageSchema = {
+    "@type": "ImageObject",
+    "@id": `${canonicalURL}#primaryImage`,
+    url: socialImageURL.toString(),
+    width: 1200,
+    height: 630,
+};
+
+const webpageSchema = {
+    "@type": "WebPage",
+    "@id": `${canonicalURL}#webpage`,
+    url: canonicalURL.toString(),
+    name: title,
+    description: description,
+    isPartOf: { "@id": `${Astro.site}#website` },
+    primaryImageOfPage: { "@id": `${canonicalURL}#primaryImage` },
+    breadcrumb: { "@id": `${canonicalURL}#breadcrumb` },
+    potentialAction: [
+        {
+            "@type": "ReadAction",
+            target: [canonicalURL.toString()],
+        },
+    ],
+};
+
+const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalURL}#breadcrumb`,
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: Astro.site,
+        },
+        ...(new URL(canonicalURL).pathname !== "/"
+            ? [
+                  {
+                      "@type": "ListItem",
+                      position: 2,
+                      name: title.split("|")[0].trim(),
+                      item: canonicalURL.toString(),
+                  },
+              ]
+            : []),
+    ],
+};
+
+const schemaGraph = {
+    "@context": "https://schema.org",
+    "@graph": [
+        personSchema,
+        organizationSchema,
+        websiteSchema,
+        imageSchema,
+        webpageSchema,
+        breadcrumbSchema,
+    ],
+};
+---
+
+<!-- Structured Data -->
+<script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(schemaGraph)}
+/>
+
+<!-- Google tag GA4 (gtag.js) -->
+<script
+    is:inline
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-QQQ43MMPC8"></script>
+<script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-QQQ43MMPC8");
+</script>
+
+<!-- Google Tag Manager -->
+<script is:inline>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            "gtm.start": new Date().getTime(),
+            event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-K787K429");
+</script>
+<!-- End Google Tag Manager --><!-- Meta Pixel Code
+<script is:inline>
+    !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod
+                ? n.callMethod.apply(n, arguments)
+                : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+    })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+    );
+    fbq("init", "25948069748163171");
+    fbq("track", "PageView");
+</script>
+<noscript
+    ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25948069748163171&ev=PageView&noscript=1"
+    /></noscript
+>
+
+ --><!-- End Meta Pixel Code --><!-- META DOMAIN VERIFICATION - FACEBOOK -->
+<meta
+    name="facebook-domain-verification"
+    content="6v9wi8m2ekf9hraywbomihaOg11ob"
+/>
+<!-- END META DOMAIN VERIFICATION -->
